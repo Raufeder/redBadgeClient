@@ -6,6 +6,7 @@ import APIURL from "../helpers/environment";
 const Login = (props) => {
 
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
@@ -35,9 +36,13 @@ const Login = (props) => {
     return (
         <div >
           <Form className="mainLogin" onSubmit={handleSubmit}>
-          <FormGroup>
+                <FormGroup>
                     <Label className="Label" htmlFor="username"></Label>
                    <Input className="Input" placeholder="Username" onChange={(e) => setUsername(e.target.value)} name="username" type="text" value={username}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label className="Label" htmlFor="email"></Label>
+                   <Input className="Input" placeholder="Email" onChange={(e) => setEmail(e.target.value)} name="email" type="email" value={email}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password"></Label>
