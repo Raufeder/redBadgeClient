@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../../styles/addRoute.css'
+import '../../styles/AddRoute.css'
 import APIURL from "../../helpers/environment";
 
 const CreateRouteComponent = (props) => {

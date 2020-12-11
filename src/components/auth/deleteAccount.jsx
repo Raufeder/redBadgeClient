@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label} from 'reactstrap';
 import APIURL from "../../helpers/environment";
-import '../../styles/deleteAccount.css';
+import '../../styles/DeleteAccount.css';
 
 const DeleteAccountComponent = (props) => {
   const {

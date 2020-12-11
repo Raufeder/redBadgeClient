@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Input, Label, FormGroup } from "reactstrap";
-import "../../styles/register.css";
+import "../../styles/Register.css";
 import APIURL from "../../helpers/environment";
 
 const Register = (props) => {

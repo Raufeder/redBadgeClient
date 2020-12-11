@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Button} from "reactstrap";
-import '../../styles/logout.css';
+import '../../styles/Logout.css';
 
 class LogoutComponent extends Component {
     logout = () => {localStorage.clear(this.props.token); this.props.loggedOut(); };
