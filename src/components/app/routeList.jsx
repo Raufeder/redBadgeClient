@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {Table} from 'reactstrap';
+import {Card, Button, CardImg, CardTitle, CardText, CardColumns, CardSubtitle, CardBody,} from 'reactstrap';
+import RouteCards from './routeCards';
 import APIURL from '../../helpers/environment';
 
 const RouteComponent = (props) => {
@@ -10,7 +11,7 @@ const RouteComponent = (props) => {
     }, []);
 
     const fetchRouteList = () => {
-      fetch(`${APIURL}/routes`, {
+      fetch(`${APIURL}routes`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
@@ -19,51 +20,21 @@ const RouteComponent = (props) => {
         body: JSON.stringify()
       }).then(response => response.json())
       .then(data => {
-        setRouteList(data);
-        console.log(data)
-        return data;
+        console.log(data);
+        setRouteList(data.routes);
       }).catch(error => console.log(error));
     }
 
+    function displayCards() {
+      return routeList.map((result, index) => <RouteCards key={index} character={result} />)
+    }
+
     return (
-        <Table responsive>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name of Route</th>
-          <th>Type of Route</th>
-          <th>Grade (Difficulty)</th>
-          <th>Keywords</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td></td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-          <td>Table cell</td>
-        </tr>
-      </tbody>
-    </Table>
+        <div>
+          <CardColumns>
+                {displayCards()}
+            </CardColumns>
+        </div>
     )
 }
 

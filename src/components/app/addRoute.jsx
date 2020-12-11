@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import '../../styles/addRoute.css'
 import APIURL from "../../helpers/environment";
 
 const CreateRouteComponent = (props) => {
     const [addRoute, setAddRoute] = useState([])
+    const [routeName, setRouteName] = useState("");
+    const [routeType, setRouteType] = useState("");
+    const [grade, setGrade] = useState("");
+    const [keywords, setKeywords] = useState("");
+    const [description, setDescription] = useState("");
     
-    useEffect(() => {
-        fetchAddRouteList()
-    }, []);
+    // useEffect(() => {
+    //     fetchAddRouteList()
+    // }, []);
 
-    const fetchAddRouteList = () => {
-        fetch(`${APIURL}/admin/add/route`, {
+    const fetchAddRouteList = (e) => {
+      e.preventDefault();
+        fetch(`${APIURL}admin/add/route`, {
           method: 'POST',
           headers: {
               "Content-Type": "application/json",
               "Authorization": props.token
           },
-          // body: json.stringify(data)
       }).then(response => response.json())
       .then(data => {
         setAddRoute(data);
@@ -30,12 +35,12 @@ const CreateRouteComponent = (props) => {
     return (
     <Form>
       <FormGroup>
-        <Label for="exampleEmail">Name of your Route</Label>
-        <Input type="text" name="email" id="exampleEmail" placeholder="Example Name" />
+        <Label for="exampleRouteName">Name of your Route</Label>
+        <Input type="text" name="name" id="exampleRouteName" placeholder="Example Name" onChange={(e) => setRouteName(e.target.value)}/>
       </FormGroup>
       <FormGroup>
         <Label for="exampleSelect">Type of Route</Label>
-        <Input type="select" name="select" id="Select Type">
+        <Input type="select" name="select" id="Select Type" onChange={(e) => setRouteType(e.target.value)}>
           <option>bouldering</option>
           <option>top rope</option>
           <option>lead climbing</option>
@@ -45,7 +50,7 @@ const CreateRouteComponent = (props) => {
       </FormGroup>
       <FormGroup>
         <Label for="exampleSelect">Desired Grade</Label>
-        <Input type="select" name="select" id="exampleSelect">
+        <Input type="select" name="select" id="exampleSelect" onChange={(e) => setGrade(e.target.value)}>
           <option>VB</option>
           <option>V0</option>
           <option>V1</option>
@@ -90,13 +95,14 @@ const CreateRouteComponent = (props) => {
       </FormGroup>
       <FormGroup>
         <Label for="exampleText">Keywords for Route</Label>
-        <Input type="textarea" name="text" id="exampleText" />
+        <Input type="textarea" name="text" id="exampleText" onChange={(e) => setKeywords(e.target.value)}/>
       </FormGroup>
       <FormGroup>
         <Label for="exampleText">Description of Route</Label>
-        <Input type="textarea" name="text" id="exampleText" />
+        <Input type="textarea" name="text" id="exampleText" onChange={(e) => setDescription(e.target.value)}/>
+        {console.log(setDescription)}
       </FormGroup>
-      <Button>Submit</Button>
+      <Button onChange={(e) => fetchAddRouteList(e.target.value)}>Submit</Button>
     </Form>
     )
 }

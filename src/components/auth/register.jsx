@@ -18,7 +18,7 @@ const Register = (props) => {
     event.preventDefault();
     if (username && password) {
       if (password === passwordConfirm) {
-        fetch(`${APIURL}/user/register`, {
+        fetch(`${APIURL}user/register`, {
                 method: 'POST',
                 body: JSON.stringify({
                   user: {
@@ -33,10 +33,10 @@ const Register = (props) => {
         })
           .then((response) => response.json())
           .then(() => {
-            fetch(`${APIURL}/user/login`, {
+            fetch(`${APIURL}user/login`, {
                         method: 'POST',
                         headers: {
-                            "Content-Type": "application/json"
+                           "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
                           user: {
