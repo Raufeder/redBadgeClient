@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input, Label} from 'reactstrap';
-import APIURL from "../helpers/environment";
+import APIURL from "../../helpers/environment";
+import '../../styles/deleteAccount.css';
 
-import '../styles/DeleteAccount.css';
-
-const DeleteAccount = (props) => {
+const DeleteAccountComponent = (props) => {
   const {
     className
   } = props;
@@ -23,7 +22,7 @@ const DeleteAccount = (props) => {
       event.preventDefault();
       
       if(username && password) {
-      fetch(`${APIURL}user/delete`, {
+      fetch(`${APIURL}/user/delete`, {
           method: 'DELETE',
           headers: {
               "Content-Type": "application/json"
@@ -36,7 +35,7 @@ const DeleteAccount = (props) => {
       .then(response => {
         setModal(false);
         localStorage.clear("sessionToken"); 
-        props.setIsLoggedIn(false);
+        props.loggedOut(false);
       })
       .catch(error => console.log(error));
   }
@@ -72,4 +71,4 @@ const DeleteAccount = (props) => {
 }
 
 
-export default DeleteAccount;
+export default DeleteAccountComponent;
