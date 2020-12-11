@@ -33,23 +33,24 @@ const Register = (props) => {
         })
           .then((response) => response.json())
           .then(() => {
-            fetch(`${APIURL}user/login`, {
-                        method: 'POST',
-                        headers: {
-                           "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                          user: {
-                            username: username,
-                            email: email,
-                            password: password
-                          }
-                        }),
-                    })
-                    .then(response => response.json())
-                    .then((body) => {
+            alert("Login to Start!")
+            // fetch(`${APIURL}user/login`, {
+            //             method: 'POST',
+            //             headers: {
+            //                "Content-Type": "application/json"
+            //             },
+            //             body: JSON.stringify({
+            //               user: {
+            //                 username: username,
+            //                 email: email,
+            //                 password: password
+            //               }
+            //             }),
+            //         })
+            //         .then(response => response.json())
+            //         .then((body) => {
                     
-                    })
+            //         })
           })
           .catch((error) => console.log(error));
       } else {
