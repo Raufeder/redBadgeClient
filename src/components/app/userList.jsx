@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CardColumns } from 'reactstrap';
-import UserCards from './userCards';
+import UserCards from './UserCards';
 import APIURL from "../../helpers/environment";
 
 const UserListComponent = (props) => {

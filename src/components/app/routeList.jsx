@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {Card, Button, CardImg, CardTitle, CardText, CardColumns, CardSubtitle, CardBody,} from 'reactstrap';
-import RouteCards from './routeCards';
+import {CardColumns} from 'reactstrap';
+import RouteCards from './RouteCards';
 import APIURL from '../../helpers/environment';
 
 const RouteComponent = (props) => {
