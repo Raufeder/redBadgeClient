@@ -4,7 +4,6 @@ import '../../styles/addRoute.css'
 import APIURL from "../../helpers/environment";
 
 const CreateRouteComponent = (props) => {
-    const [addRoute, setAddRoute] = useState([])
     const [routeName, setRouteName] = useState("");
     const [routeType, setRouteType] = useState("");
     const [grade, setGrade] = useState("");
@@ -16,31 +15,42 @@ const CreateRouteComponent = (props) => {
     // }, []);
 
     const fetchAddRouteList = (e) => {
-      e.preventDefault();
+      e.preventDefault()
         fetch(`${APIURL}admin/add/route`, {
           method: 'POST',
-          headers: {
+          body: JSON.stringify({
+            route: {
+              routeName: routeName,
+              routeType: routeType,
+              grade: grade,
+              keywords: keywords,
+              description: description
+            }
+          }),
+          headers: new Headers ({
               "Content-Type": "application/json",
               "Authorization": props.token
-          },
-      }).then(response => response.json())
-      .then(data => {
-        setAddRoute(data);
-        console.log('Success', data)
+          })
+      }).then(response => response.text())
+      .then((body) =>  {
+        console.log(body)
+        setRouteName('');
+        setRouteType('');
+        setGrade('');
+        setKeywords('');
+        setDescription('');
       }).catch(error => console.log(error));
     }
 
-
-    
     return (
     <Form>
       <FormGroup>
         <Label for="exampleRouteName">Name of your Route</Label>
-        <Input type="text" name="name" id="exampleRouteName" placeholder="Example Name" onChange={(e) => setRouteName(e.target.value)}/>
+        <Input type="text" name="name" id="exampleRouteName" placeholder="Example Name" value={routeName} onChange={(e) => setRouteName(e.target.value)}/>
       </FormGroup>
       <FormGroup>
         <Label for="exampleSelect">Type of Route</Label>
-        <Input type="select" name="select" id="Select Type" onChange={(e) => setRouteType(e.target.value)}>
+        <Input type="select" name="select" id="Select Type" value={routeType} onChange={(e) => setRouteType(e.target.value)}>
           <option>bouldering</option>
           <option>top rope</option>
           <option>lead climbing</option>
@@ -50,7 +60,7 @@ const CreateRouteComponent = (props) => {
       </FormGroup>
       <FormGroup>
         <Label for="exampleSelect">Desired Grade</Label>
-        <Input type="select" name="select" id="exampleSelect" onChange={(e) => setGrade(e.target.value)}>
+        <Input type="select" name="select" id="exampleSelect" value={grade} onChange={(e) => setGrade(e.target.value)}>
           <option>VB</option>
           <option>V0</option>
           <option>V1</option>
@@ -95,14 +105,13 @@ const CreateRouteComponent = (props) => {
       </FormGroup>
       <FormGroup>
         <Label for="exampleText">Keywords for Route</Label>
-        <Input type="textarea" name="text" id="exampleText" onChange={(e) => setKeywords(e.target.value)}/>
+        <Input type="textarea" name="text" id="exampleText" value={keywords} onChange={(e) => setKeywords(e.target.value)}/>
       </FormGroup>
       <FormGroup>
         <Label for="exampleText">Description of Route</Label>
-        <Input type="textarea" name="text" id="exampleText" onChange={(e) => setDescription(e.target.value)}/>
-        {console.log(setDescription)}
+        <Input type="textarea" name="text" id="exampleText" value={description} onChange={(e) => setDescription(e.target.value)}/>
       </FormGroup>
-      <Button onChange={(e) => fetchAddRouteList(e.target.value)}>Submit</Button>
+      <Button onClick={(event) =>fetchAddRouteList(event)}>Submit</Button>
     </Form>
     )
 }

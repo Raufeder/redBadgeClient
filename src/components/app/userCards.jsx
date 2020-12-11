@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styles/userCards.css';
 import {
   Card,
   CardTitle,
@@ -14,9 +15,9 @@ const UserCards = (props) => {
         <div>
             <Card>
                 <CardBody>
-                    <CardTitle>{username}</CardTitle>
-                    <CardSubtitle>{email}</CardSubtitle>
-                    <CardText>{userType}</CardText>
+                    <CardTitle className= 'cardInfo' >Username: {username}</CardTitle>
+                    <CardSubtitle className= 'cardInfo' >Email: {email}</CardSubtitle>
+                    <CardText className= 'cardInfo' >Type of User: {userType}</CardText>
                 </CardBody>
             </Card>
         </div>

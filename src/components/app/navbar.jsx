@@ -17,37 +17,37 @@ const NavbarComponent = (props) => {
                             props.isLoggedIn && props.admin===true  
                             ? (
                                 <>
-                                    <NavItem>
-                                        <Link to='/admin/add/route'>Create a Route</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/admin/add/route'>Create a Route</Link>
                                     </NavItem>
-                                    <NavItem>
-                                        <Link to='/routes'>List of Routes</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/routes'>List of Routes</Link>
                                     </NavItem>
-                                    <NavItem>
-                                        <Link to='/admin/userlist'>List of users</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/admin/userlist'>List of users</Link>
                                     </NavItem>
-                                    <NavItem>
-                                        <Link to='/' onClick={props.loggedOut} token={props.token}>Logout</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/' onClick={props.loggedOut} token={props.token}>Logout</Link>
                                     </NavItem>
                                 </>
                             ) 
                             : props.isLoggedIn ? (
                                 <>
-                                    <NavItem>
-                                        <Link to='/routes'>Routes</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/routes'>Routes</Link>
                                     </NavItem>
-                                    <NavItem>
-                                        <Link to='/' onClick={props.loggedOut} token={props.token}>Logout</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/' onClick={props.loggedOut} token={props.token}>Logout</Link>
                                     </NavItem>
                                 </>
                             )
                             : (
                                 <>
-                                    <NavItem>
-                                        <Link to='/user/login'>Login</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/user/login'>Login</Link>
                                     </NavItem>
-                                    <NavItem>
-                                        <Link to='/user/register'>Register</Link>
+                                    <NavItem className= 'myButton' >
+                                        <Link className= 'myButton' to='/user/register'>Register</Link>
                                     </NavItem>
                                 </>
                             )}
