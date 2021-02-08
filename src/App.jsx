@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import LoginComponent from './components/auth/Login';
-import RegisterComponent from './components/auth/Register';
-import DeleteAccountComponent from "./components/auth/DeleteAccount";
-import NavbarComponent from './components/app/Navbar';
-import HomePageComponent from './components/app/HomePage';
-import RouteComponent from './components/app/RouteList';
-import UserListComponent from './components/app/UserList';
-import CreateRouteComponent from './components/app/AddRoute';
+import LoginComponent from './components/auth/login';
+import RegisterComponent from './components/auth/register';
+import DeleteAccountComponent from "./components/auth/deleteAccount";
+import NavbarComponent from './components/app/navbar';
+import HomePageComponent from './components/app/homePage';
+import RouteComponent from './components/app/routeList';
+import UserListComponent from './components/app/userList';
+import CreateRouteComponent from './components/app/addRoute';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
