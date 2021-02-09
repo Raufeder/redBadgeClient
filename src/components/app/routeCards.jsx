@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/routeCards.css';
+import '../../styles/RouteCards.css';
 import {Card, CardBody,CardTitle} from 'reactstrap';
 
 const CardMorty = (props) => {
