@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../../styles/AddRoute.css'
+import '../../styles/addRoute.css'
 import APIURL from "../../helpers/environment";
 
 const CreateRouteComponent = (props) => {
@@ -51,6 +51,7 @@ const CreateRouteComponent = (props) => {
       <FormGroup>
         <Label for="exampleSelect">Type of Route</Label>
         <Input type="select" name="select" id="Select Type" value={routeType} onChange={(e) => setRouteType(e.target.value)}>
+          <option>Choose an option</option>
           <option>bouldering</option>
           <option>top rope</option>
           <option>lead climbing</option>
@@ -61,6 +62,7 @@ const CreateRouteComponent = (props) => {
       <FormGroup>
         <Label for="exampleSelect">Desired Grade</Label>
         <Input type="select" name="select" id="exampleSelect" value={grade} onChange={(e) => setGrade(e.target.value)}>
+          <option>Choose difficulty</option>
           <option>VB</option>
           <option>V0</option>
           <option>V1</option>

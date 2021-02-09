@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {CardColumns} from 'reactstrap';
-import RouteCards from './RouteCards';
+import RouteCards from './routeCards';
 import APIURL from '../../helpers/environment';
 
 const RouteComponent = (props) => {

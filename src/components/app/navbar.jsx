@@ -9,7 +9,7 @@ const NavbarComponent = (props) => {
     return (
         <div>
             <Navbar color="dark" dark>
-                <NavbarBrand href='/' className="mr-auto">Climber Tracker</NavbarBrand>
+                <NavbarBrand href='/' className="mr-auto">Climb Finder</NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar}/>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>
