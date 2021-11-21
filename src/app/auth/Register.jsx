@@ -12,28 +12,29 @@ const Register = (props) => {
   const triggerUsernameInputChange = (event) => setUsername(event.target.value);
   const triggerEmailInputChange = (event) => setEmail(event.target.value);
   const triggerPasswordInputChange = (event) => setPassword(event.target.value);
-  const triggerPasswordConfirmInputChange = (event) => setPasswordConfirm(event.target.value);
+  const triggerPasswordConfirmInputChange = (event) =>
+    setPasswordConfirm(event.target.value);
 
   const registerSubmit = (event) => {
     event.preventDefault();
     if (username && password) {
       if (password === passwordConfirm) {
         fetch(`${APIURL}user/register`, {
-                method: 'POST',
-                body: JSON.stringify({
-                  user: {
-                    username: username,
-                    email: email,
-                    password: password
-                  }
-                }),
-                headers: new Headers ({
-                    "Content-Type": "application/json"
-                })
+          method: "POST",
+          body: JSON.stringify({
+            user: {
+              username: username,
+              email: email,
+              password: password,
+            },
+          }),
+          headers: new Headers({
+            "Content-Type": "application/json",
+          }),
         })
           .then((response) => response.json())
           .then(() => {
-            alert("Login to Start!")
+            alert("Login to Start!");
             // fetch(`${APIURL}user/login`, {
             //             method: 'POST',
             //             headers: {
@@ -49,7 +50,7 @@ const Register = (props) => {
             //         })
             //         .then(response => response.json())
             //         .then((body) => {
-                    
+
             //         })
           })
           .catch((error) => console.log(error));
@@ -97,6 +98,7 @@ const Register = (props) => {
             value={password}
             id="registerPassword"
             type="password"
+            autoComplete="on"
             name="registerPassword"
           />
         </FormGroup>
@@ -109,6 +111,7 @@ const Register = (props) => {
             value={passwordConfirm}
             id="registerConfirmPassword"
             type="password"
+            autoComplete="on"
             name="registerConfirmPassword"
           />
         </FormGroup>

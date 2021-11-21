@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
-import LoginComponent from "./components/auth/Login";
-import RegisterComponent from "./components/auth/Register";
-import DeleteAccountComponent from "./components/auth/DeleteAccount";
-import NavbarComponent from "./components/app/navbar";
-import HomePageComponent from "./components/app/homePage";
-import RouteComponent from "./components/app/routeList";
-import UserListComponent from "./components/app/userList";
-import CreateRouteComponent from "./components/app/addRoute";
+import LoginComponent from "./app/auth/Login";
+import RegisterComponent from "./app/auth/Register";
+import DeleteAccountComponent from "./app/auth/DeleteAccount";
+import NavbarComponent from "./app/components/navbar";
+import HomePageComponent from "./app/pages/homePage";
+import RouteComponent from "./app/pages/routeList";
+import UserListComponent from "./app/pages/userList";
+import CreateRouteComponent from "./app/pages/addRoute";
 
 //TODO Fix Navbar
 //TODO Add delete user button
 //TODO Add make admin button
+//TODO Add account page with change password and such
+
 //TODO Make the app much better to look at
 //TODO Make cards much nicer
 
